@@ -1,0 +1,18 @@
+a :hover{
+  cursor: pointer;
+}
+
+body {
+  margin-top: 50px;
+}
+
+::-ms-clear {
+  display: none;
+}
+
+.form-control-clear {
+  margin-right: 40px;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+}
