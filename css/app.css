@@ -21,3 +21,9 @@ body {
 .form-control-clear:hover {
   opacity: 1;
 }
+
+.errorAlert {
+  margin-bottom: 0;
+  border-width: 0;
+  border-radius: 0px;
+}

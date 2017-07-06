@@ -9,9 +9,7 @@ $(document).ready(function () {
   $('.form-control-clear').click(function() {
     $(this).siblings('input[type="text"]').val('')
       .trigger('propertychange').focus();
-    $('#petResults').empty()
-    offset = 0
-    $('#loadMore').hide()
+    resetPage()
   });
   $('#loadMore').on('click', function (event) {
     getPets(zipCode, showPets)
@@ -39,8 +37,7 @@ function showPetProfile(pet) {
 
 function handlePetSearch(event) {
   event.preventDefault()
-  $('#petResults').empty()
-  offset = 0
+  resetPage()
   zipCode = $('#zipCode').val()
   getPets(zipCode, showPets)
 }
@@ -57,4 +54,21 @@ function showPets(pets) {
     $petResults.append(petHTML)
     $('#loadMore').show()
   })
+}
+
+function renderError(message) {
+  errorHTML = `
+  <div class="errorAlert alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>${message}</strong>
+  </div>
+  `
+  $('#error').html(errorHTML)
+}
+
+function resetPage() {
+  $('#petResults').empty()
+  $('#error').empty()
+  $('#loadMore').hide()
+  offset = 0
 }

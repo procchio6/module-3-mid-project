@@ -7,6 +7,10 @@ function getPets(zipCode, callback) {
     url: baseURL + `pet.find?format=json&key=${key}&location=${zipCode}&count=30&offset=${offset}`,
     method: 'GET',
     success: function (data) {
+      if (data.petfinder.header.status.code.$t != "100") {
+        renderError(data.petfinder.header.status.message.$t)
+        return
+      }
       offset = data.petfinder.lastOffset.$t
       let pets = data.petfinder.pets.pet.map(petJSON => {
         return new Pet(petJSON)
