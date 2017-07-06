@@ -27,3 +27,11 @@ body {
   border-width: 0;
   border-radius: 0px;
 }
+
+#petResults {
+  margin-top: 41.5px;
+}
+
+.petListing {
+  margin-bottom: 20px;
+}

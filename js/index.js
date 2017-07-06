@@ -30,8 +30,12 @@ function handleShowPet(event) {
 function showPetProfile(pet) {
   let modal = $('#petModal')
   modal.find('.modal-title').text(`${pet.name}`)
+  let petDescription = pet.description
+  if (petDescription == undefined) {
+    petDescription = '<p>Description not available!</p>'
+  }
   modal.find('.modal-body').empty().append(
-    `<p>${pet.description}</p>`
+    `<p>${petDescription}</p>`
   )
 }
 
@@ -43,6 +47,7 @@ function handlePetSearch(event) {
 }
 
 function showPets(pets) {
+  $('.jumbotron').hide()
   let $petResults = $('#petResults')
   pets.forEach((pet, idx) => {
     let petHTML = pet.render()
@@ -67,6 +72,7 @@ function renderError(message) {
 }
 
 function resetPage() {
+  $('.jumbotron').show()
   $('#petResults').empty()
   $('#error').empty()
   $('#loadMore').hide()

@@ -17,14 +17,14 @@ class Pet {
 
   render() {
     let petHTML = `
-      <div class="col-sm-4">
+      <div class="col-sm-4 petListing">
         <a class="showPet" rel=${this.id} data-toggle="modal" data-target="#petModal" data-petid=${this.id}>
     `
 
     if (this.photo != null) {
       petHTML += `<img src="${this.photo}" class="img-responsive thumbnail">`
     } else {
-      petHTML += '<img src="http://via.placeholder.com/300x300" class="img-responsive thumbnail">'
+      petHTML += '<img src="images/no-image-placeholder.jpg" class="img-responsive thumbnail">'
     }
 
     petHTML += `
