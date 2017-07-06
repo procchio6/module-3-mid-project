@@ -11,8 +11,13 @@ body {
 }
 
 .form-control-clear {
+  opacity: .5;
   margin-right: 40px;
   z-index: 10;
   pointer-events: auto;
   cursor: pointer;
+}
+
+.form-control-clear:hover {
+  opacity: 1;
 }
