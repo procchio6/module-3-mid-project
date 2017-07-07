@@ -1,14 +1,15 @@
 let baseURL = 'http://api.petfinder.com/'
 let key = '2db7adf34e5bb3a97a4baae9f27579e5'
 let offset = 0
+let petCount = 30
 
 function getPets(zipCode, callback) {
   $.ajax({
-    url: baseURL + `pet.find?format=json&key=${key}&location=${zipCode}&count=30&offset=${offset}`,
+    url: baseURL + `pet.find?format=json&key=${key}&location=${zipCode}&count=${petCount}&offset=${offset}`,
     method: 'GET',
     success: function (data) {
       if (data.petfinder.header.status.code.$t != "100") {
-        renderError(data.petfinder.header.status.message.$t)
+        renderError(data.petfinder.header.status.message.$t + '!')
         return
       }
       offset = data.petfinder.lastOffset.$t

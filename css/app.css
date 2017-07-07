@@ -35,3 +35,7 @@ body {
 .petListing {
   margin-bottom: 20px;
 }
+
+button#loadMore {
+  border-radius: 0px;
+}
